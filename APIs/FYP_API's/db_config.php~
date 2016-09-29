@@ -1,0 +1,7 @@
+<?php
+
+	define('DB_SERVER',"110.4.46.195");
+	define('DB_USER',"user01");
+	define('DB_PASS',"111111");
+	define('DB_DATABASE',"bus_tracker_gps");
+?>

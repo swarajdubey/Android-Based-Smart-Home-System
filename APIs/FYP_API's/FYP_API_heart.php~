@@ -1,0 +1,19 @@
+<?php
+
+require_once __DIR__ . '/db_connect.php';
+$response = array();// array for JSON response
+
+if ( isset($_POST['heart_mtr'],$_POST['mac_addr']) ) //if heart rate has been received with this key
+{
+    $heart_rate=$_POST['heart_mtr']; //heart rate of the person using the android device
+    $mac_addr=$_POST['mac_addr']; //mac address of the android device from which the heart rate is being sent
+
+    $db = new DB_CONNECT();// connecting to the database
+
+    $result = mysql_query("UPDATE person_monitor SET heart_rate= '$heart_rate' WHERE mac_address = '$mac_addr' ");
+
+    $response["message"] = "successfully updated.";
+
+    echo json_encode($response);//return JSON string
+} 
+?>

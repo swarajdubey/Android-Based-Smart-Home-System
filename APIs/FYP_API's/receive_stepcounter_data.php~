@@ -1,0 +1,15 @@
+<?php
+
+//this file creates a new row in the step counter table
+require_once __DIR__ . '/db_connect.php';
+$db = new DB_CONNECT();
+date_default_timezone_set("Asia/Kuala_Lumpur");
+$current_date=date("Y-m-d");
+
+if(isset($_POST['stepkey']))//step counter data received
+{
+	$no_of_steps=0;
+	$updatequery=mysql_query("INSERT INTO step_counter_monitor(_Date,Steps) VALUES('$current_date','$no_of_steps')");
+}
+
+?>
